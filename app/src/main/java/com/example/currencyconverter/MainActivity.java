@@ -12,10 +12,14 @@ import static android.widget.Toast.*;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        JSOUPManager jsoupManager = new JSOUPManager();
+        jsoupManager.init();
     }
 
     public void onClickConvert(View view) {
