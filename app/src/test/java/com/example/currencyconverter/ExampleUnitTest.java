@@ -19,8 +19,11 @@ public class ExampleUnitTest {
     @Test
     public void convertUsdToPLN() {
         MainActivity mainActivity = new MainActivity();
+        GetTheCurrentExchangeRate getTheCurrentExchangeRate = new GetTheCurrentExchangeRate();
 
+        Double USD = 100.00;
+        Double result = USD * getTheCurrentExchangeRate.get_USD();
 
-        Assert.assertEquals(mainActivity.convert(100.00), 350, 0.01);
+        Assert.assertEquals(mainActivity.convert(100.00, getTheCurrentExchangeRate.get_USD()), result, 0.01);
     }
 }

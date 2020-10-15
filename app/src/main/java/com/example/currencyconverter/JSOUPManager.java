@@ -34,30 +34,12 @@ public class JSOUPManager {
     private void getWeb() { //get web page
         try {
             document = Jsoup.connect("https://internetowykantor.pl/kursy-walut/").get();
-
-            Elements getTBody = document.getElementsByTag("tbody"); //get all tbody from page
-            Element allCurrencyTBody = getTBody.get(0);
-            Elements getElementsFromTable = allCurrencyTBody.children();
-
-            Element euroElement = getElementsFromTable.get(0);
-            Elements getEuroPurchase = euroElement.children();
-
-            Element dollarElement = getElementsFromTable.get(1);
-            Elements getDollarPurchase = dollarElement.children();
-
-            Element swissFrancElement = getElementsFromTable.get(2);
-            Elements getSwissFrancPurchase = swissFrancElement.children();
-
-            Element poundSterlingElement = getElementsFromTable.get(3);
-            Elements getPoundSterlingPurchase = poundSterlingElement.children();
-
-
-            Log.d("MyLog", "Euro Purchase : " + getEuroPurchase.get(1).text());
-            Log.d("MyLog", "USD Purchase : " + getDollarPurchase.get(1).text());
-            Log.d("MyLog", "CHF Purchase : " + getSwissFrancPurchase.get(1).text());
-            Log.d("MyLog", "GBP Purchase : " + getPoundSterlingPurchase.get(1).text());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Elements getTBody() {
+        return document.getElementsByTag("tbody"); //get all tbody from page
     }
 }
