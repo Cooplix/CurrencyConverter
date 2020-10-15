@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         Double polishAmount = amountDouble * 3.5;
 
-        Toast.makeText(MainActivity.this, polishAmount.toString() + " in Dollars: " + polishAmount.toString(), LENGTH_SHORT).show();
+        EditText resultAmountPolish = (EditText) findViewById(R.id.resultAmountPolish);
+
+        resultAmountPolish.setText(String.format("%.2f", polishAmount) + " PLN in Dollars: " + String.format("%.2f", polishAmount));
 ;    }
 }
