@@ -18,15 +18,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void convert(View view) {
+    public void onClickConvert(View view) {
         EditText amountEditText = (EditText) findViewById(R.id.amountEditText);
 
         Double amountDouble = Double.parseDouble(amountEditText.getText().toString());
 
-        Double polishAmount = amountDouble * 3.5;
-
         EditText resultAmountPolish = (EditText) findViewById(R.id.resultAmountPolish);
 
-        resultAmountPolish.setText(String.format("%.2f", polishAmount) + " PLN in Dollars: " + String.format("%.2f", polishAmount));
-;    }
+        convert(amountDouble);
+
+        resultAmountPolish.setText(String.format("%.2f", amountDouble) + " PLN in Dollars: " + String.format("%.2f", convert(amountDouble)));
+
+    }
+
+    public Double convert(Double amountDouble) {
+        return amountDouble * 3.5;
+    }
 }

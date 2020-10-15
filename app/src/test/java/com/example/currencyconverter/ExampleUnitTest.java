@@ -1,5 +1,6 @@
 package com.example.currencyconverter;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,5 +14,13 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void convertUsdToPLN() {
+        MainActivity mainActivity = new MainActivity();
+
+
+        Assert.assertEquals(mainActivity.convert(100.00), 350, 0.01);
     }
 }
